@@ -32,4 +32,11 @@ public class ClientDAOImplTest extends DatabaseHibernateTest {
         assertThat(clientFromDb, is(notNullValue()));
     }
 
+    @Test
+    @Transactional
+    public void testDeleteClients(){
+        clientDAO.deleteAll();
+        assertThat(clientDAO.getAll().size(), is(0));
+    }
+
 }

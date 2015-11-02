@@ -61,4 +61,11 @@ abstract class CRUDOperationDAOImpl<E, K extends Serializable> implements CRUDOp
         return getCurrentSession().createCriteria(daoType).list();
     }
 
+    @Override
+    public void deleteAll() {
+        List<E> entityList = getCurrentSession().createCriteria(daoType).list();
+        for (E entity : entityList) {
+            getCurrentSession().delete(entity);
+        }
+    }
 }

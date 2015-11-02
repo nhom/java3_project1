@@ -26,7 +26,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="3" dbms="mysql" author="edgar" context="main">
+    <changeSet id="3" dbms="mysql" author="victor" context="main">
         <sql>
             CREATE TABLE clients
             (
