@@ -1,6 +1,6 @@
 package lv.javaguru.java3.core.services.logincredentials;
 
-import lv.javaguru.java3.core.database.LoginCredentialsDAO;
+import lv.javaguru.java3.core.database.logincredentials.LoginCredentialsDAO;
 import lv.javaguru.java3.core.domain.LoginCredentials;
 import org.junit.Test;
 import org.junit.runner.RunWith;

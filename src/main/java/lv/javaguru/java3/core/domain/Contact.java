@@ -13,11 +13,11 @@ public class Contact {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="contact_id",unique = true, nullable = false)
-    private int id;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "country_id")
-    Country country;
+    private Country country;
 
     @Column(name="phone_number", nullable = true)
     private int phoneNumber;
@@ -32,4 +32,45 @@ public class Contact {
     @Column(name = "created", columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
 }

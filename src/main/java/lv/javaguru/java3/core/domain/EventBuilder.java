@@ -31,5 +31,23 @@ public class EventBuilder {
         return event;
     }
 
+    public EventBuilder withId(Long id) {
+        this.id = id;
+        return this;
+    }
 
+    public EventBuilder withTitle(String title){
+        this.title = title;
+        return this;
+    }
+
+    public EventBuilder withDescription(String description){
+        this.description = description;
+        return this;
+    }
+
+    public EventBuilder withAuthor(Profile author){
+        this.author = author;
+        return this;
+    }
 }

@@ -35,7 +35,7 @@
             `email` varchar(50) DEFAULT NULL,
             `updated` datetime DEFAULT NULL,
             `created` datetime NOT NULL,
-            `country_id` int(11) NOT NULL,
+            `country_id` bigint(20) NOT NULL,
             PRIMARY KEY (`contact_id`),
             UNIQUE KEY `contact_id_uindex` (`contact_id`),
             KEY `contact_countries__fk` (`country_id`),
@@ -53,7 +53,7 @@
     <changeSet id="4" dbms="mysql" author="edgar" context="main">
         <sql>
             CREATE TABLE `countries` (
-            `country_id` int(11) NOT NULL,
+            `country_id` bigint(20) NOT NULL,
             `name` varchar(70) NOT NULL DEFAULT '',
             `code` char(2) NOT NULL DEFAULT '',
             `code3` char(3) NOT NULL,

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-class CreateClientCommandHandler
+class CreateLoginCredentialsCommandHandler
 		implements DomainCommandHandler<CreateLoginCredentialsCommand, CreateLoginCredentialsResult> {
 
 	@Autowired

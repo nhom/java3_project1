@@ -12,7 +12,7 @@ public class Country {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="country_id",unique = true, nullable = false)
-    private int id;
+    private Long id;
 
     @Column(name="code", nullable = true)
     private String code;
@@ -22,4 +22,36 @@ public class Country {
 
     @Column(name="phone_code", nullable = true)
     private int phoneCode;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode3() {
+        return code3;
+    }
+
+    public void setCode3(String code3) {
+        this.code3 = code3;
+    }
+
+    public int getPhoneCode() {
+        return phoneCode;
+    }
+
+    public void setPhoneCode(int phoneCode) {
+        this.phoneCode = phoneCode;
+    }
 }

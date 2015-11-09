@@ -1,7 +1,6 @@
 package lv.javaguru.java3.core.database.logincredentials;
 
 import lv.javaguru.java3.config.AppCoreConfig;
-import lv.javaguru.java3.core.database.LoginCredentialsDAO;
 import org.hibernate.SessionFactory;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
@@ -28,6 +27,4 @@ public abstract class DatabaseHibernateTest {
 
     @Autowired
     protected LoginCredentialsDAO loginCredentialsDAO;
-
-
 }
