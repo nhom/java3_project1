@@ -26,6 +26,27 @@
         </createTable>
     </changeSet>
 
+    <!-- Table structure for table `countries` -->
+    <changeSet id="4" dbms="mysql" author="edgar" context="main">
+        <sql>
+            CREATE TABLE `countries` (
+            `country_id` bigint(20) NOT NULL,
+            `name` varchar(70) NOT NULL DEFAULT '',
+            `code` char(2) NOT NULL DEFAULT '',
+            `code3` char(3) NOT NULL,
+            `phone_code` int(7) NOT NULL,
+            PRIMARY KEY (`country_id`),
+            UNIQUE KEY `code` (`code`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE `countries`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
     <!-- Table structure for table `contact` -->
     <changeSet id="3" dbms="mysql" author="edgar" context="main">
         <sql>
@@ -49,25 +70,6 @@
         </rollback>
     </changeSet>
 
-    <!-- Table structure for table `countries` -->
-    <changeSet id="4" dbms="mysql" author="edgar" context="main">
-        <sql>
-            CREATE TABLE `countries` (
-            `country_id` bigint(20) NOT NULL,
-            `name` varchar(70) NOT NULL DEFAULT '',
-            `code` char(2) NOT NULL DEFAULT '',
-            `code3` char(3) NOT NULL,
-            `phone_code` int(7) NOT NULL,
-            PRIMARY KEY (`country_id`),
-            UNIQUE KEY `code` (`code`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-        </sql>
-        <rollback>
-            <sql>
-                DROP TABLE `countries`;
-            </sql>
-        </rollback>
-    </changeSet>
 
     <!-- Data for table `countries` -->
     <changeSet id="5" dbms="mysql" author="edgar" context="main">
@@ -123,8 +125,25 @@
         </rollback>
     </changeSet>
 
-    <!-- Table structure for table `profile` -->
+    <!-- Table structure for table `participants_events` -->
     <changeSet id="8" dbms="mysql" author="edgar" context="main">
+        <sql>
+            CREATE TABLE `participants_events` (
+            `profile_id` bigint(20) NOT NULL,
+            `event_id` bigint(20) NOT NULL,
+            KEY `participants_events_profile_id_index` (`profile_id`),
+            KEY `participants_events_event_id_index` (`event_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `participants_events`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `profile` -->
+    <changeSet id="9" dbms="mysql" author="edgar" context="main">
         <sql>
             CREATE TABLE `profile` (
             `profile_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -146,4 +165,119 @@
             </sql>
         </rollback>
     </changeSet>
+
+
+    <!-- Table structure for table `city` -->
+    <changeSet id="10" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `cities` (
+            `city_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `city_id_uindex` (`city_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `cities`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
+    <!-- Table structure for table `loginstatus` -->
+    <changeSet id="12" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `login_status` (
+            `status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `status_id_uindex` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `login_status`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `Adress` -->
+    <changeSet id="11" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `adresses` (
+            `adress_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `city_id` bigint(20) NOT NULL,
+            `country_id` bigint(20) NOT NULL,
+            `street` varchar(50) NOT NULL,
+            `building_number` int(7) NOT NULL,
+            `zip_code` int(5) DEFAULT NULL,
+            PRIMARY KEY (`adress_id`),
+            UNIQUE KEY `adress_id_uindex` (`adress_id`),
+            FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`),
+            FOREIGN KEY (`country_id`) REFERENCES `countries` (`country_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `adresses`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
+    <!-- Table structure for table `events` -->
+    <changeSet id="6" dbms="mysql" author="edgar" context="main">
+        <sql>
+            CREATE TABLE `events` (
+            `event_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(150) NOT NULL,
+            `description` text NOT NULL,
+            `created` datetime NOT NULL,
+            `updated` datetime DEFAULT NULL,
+            `author_profile_id` bigint(20) NOT NULL,
+            PRIMARY KEY (`event_id`),
+            UNIQUE KEY `events_id_uindex` (`event_id`),
+            KEY `event` (`author_profile_id`),
+            CONSTRAINT `events_profile__fk` FOREIGN KEY (`author_profile_id`) REFERENCES `profile` (`profile_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE `events`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `notification_status` -->
+    <changeSet id="13" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `notification_status` (
+            `status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `notif_status_id_uindex` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `notification_status`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `notification_type` -->
+    <changeSet id="14" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `notification_type` (
+            `status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `notif_type_id_uindex` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `notification_type`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
 </databaseChangeLog>
