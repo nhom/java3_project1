@@ -154,11 +154,27 @@
         </sql>
         <rollback>
             <sql>
-                DROP TABLE IF EXISTS `profile`;
+                DROP TABLE IF EXISTS `cities`;
             </sql>
         </rollback>
     </changeSet>
 
+
+    <!-- Table structure for table `loginstatus` -->
+    <changeSet id="12" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `login_status` (
+            `status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `status_id_uindex` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `login_status`;
+            </sql>
+        </rollback>
+    </changeSet>
 
     <!-- Table structure for table `Adress` -->
     <changeSet id="11" dbms="mysql" author="vlad" context="main">
@@ -178,7 +194,7 @@
         </sql>
         <rollback>
             <sql>
-                DROP TABLE IF EXISTS `profile`;
+                DROP TABLE IF EXISTS `adresses`;
             </sql>
         </rollback>
     </changeSet>
@@ -203,6 +219,38 @@
         <rollback>
             <sql>
                 DROP TABLE `events`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `notification_status` -->
+    <changeSet id="13" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `notification_status` (
+            `status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `notif_status_id_uindex` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `notification_status`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `notification_type` -->
+    <changeSet id="4" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `notification_type` (
+            `status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `notif_type_id_uindex` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `notification_type`;
             </sql>
         </rollback>
     </changeSet>

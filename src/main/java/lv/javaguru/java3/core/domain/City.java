@@ -1,13 +1,12 @@
 package lv.javaguru.java3.core.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Vladislav on 11/9/2015.
  */
+@Entity
+@Table(name="cities")
 public class City {
 
     @Id
