@@ -23,6 +23,9 @@ public class Country {
     @Column(name="phone_code", nullable = true)
     private int phoneCode;
 
+    @Column(name="name", nullable = true)
+    private String name;
+
     public Long getId() {
         return id;
     }
@@ -53,5 +56,13 @@ public class Country {
 
     public void setPhoneCode(int phoneCode) {
         this.phoneCode = phoneCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

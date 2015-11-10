@@ -19,15 +19,19 @@ public class Event {
     @Column(name="event_id",unique = true, nullable = false)
     private Long id;
 
-    @Column(name="name", nullable = false)
+    @Column(name="title", nullable = false)
     private String title;
 
-    @Column(name="name", nullable = true)
+    @Column(name="description", nullable = true)
     private String description;
+
+    @Column(name = "date", columnDefinition="DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id", nullable = false)
-    private Profile author;
+    private Profile organizer;
 
     @Column(name = "updated", columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
@@ -36,16 +40,6 @@ public class Event {
     @Column(name = "created", columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
-
-    // Functions
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "participants_events",  joinColumns = {
-            @JoinColumn(name = "profile_id", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "event_id",
-                    nullable = false, updatable = false) })
-    public Set<Profile> getParticipants() {
-        return this.participants;
-    }
 
     public Long getId() {
         return id;
@@ -71,12 +65,20 @@ public class Event {
         this.description = description;
     }
 
-    public Profile getAuthor() {
-        return author;
+    public Date getDate() {
+        return date;
     }
 
-    public void setAuthor(Profile author) {
-        this.author = author;
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Profile getOrganizer() {
+        return organizer;
+    }
+
+    public void setOrganizer(Profile organizer) {
+        this.organizer = organizer;
     }
 
     public Date getCreated() {
@@ -85,5 +87,24 @@ public class Event {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "tickets",  joinColumns = {
+            @JoinColumn(name = "profile_id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "event_id",
+                    nullable = false, updatable = false) })
+    public Set<Profile> getParticipants() {
+        return this.participants;
     }
 }

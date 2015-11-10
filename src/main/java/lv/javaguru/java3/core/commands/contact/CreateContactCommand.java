@@ -7,7 +7,7 @@ import lv.javaguru.java3.core.domain.Country;
 /**
  * Created by Edgar on 09-Nov-15.
  */
-public class CreateContactCommand implements DomainCommand<CreateLoginCredentialsResult> {
+public class CreateContactCommand implements DomainCommand<CreateContactResult> {
 
     private Country country;
     private int phoneNumber;

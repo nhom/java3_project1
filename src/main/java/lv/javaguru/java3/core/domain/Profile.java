@@ -10,7 +10,7 @@ import java.util.Set;
 public class Profile {
 
     private Set<Event> participatedEvents = new HashSet<>(0);
-    private Set<Event> myEvents = new HashSet<>(0);
+    private Set<Event> organizedEvents = new HashSet<>(0);
 
     // Attributes
     @Id
@@ -39,12 +39,6 @@ public class Profile {
     @Column(name = "created", columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
-
-    // Functions
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "participants")
-    public Set<Event> getParticipatedEvents() {
-        return this.participatedEvents;
-    }
 
     // Id
     public Long getId() {
@@ -82,14 +76,24 @@ public class Profile {
         this.contact = contact;
     }
 
-    // My Events
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
-    public Set<Event> getMyEvents() {
-        return this.myEvents;
+    // Organized events
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organizer")
+    public Set<Event> getOrganizedEvents() {
+        return this.organizedEvents;
     }
 
-    public void setMyEvents(Set<Event> myEvents) {
-        this.myEvents = myEvents;
+    public void setOrganizedEvents(Set<Event> organizedEvents) {
+        this.organizedEvents = organizedEvents;
+    }
+
+    // Participated events
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "participant")
+    public Set<Event> getParticipatedEvents() {
+        return this.participatedEvents;
+    }
+
+    public void setParticipatedEvents(Set<Event> participatedEvents) {
+        this.participatedEvents = participatedEvents;
     }
 
     // Updated
