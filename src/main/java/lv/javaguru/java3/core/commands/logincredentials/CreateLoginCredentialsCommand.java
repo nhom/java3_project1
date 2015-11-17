@@ -21,5 +21,4 @@ public class CreateLoginCredentialsCommand implements DomainCommand<CreateLoginC
     public String getPassword() {
         return password;
     }
-
 }

@@ -9,8 +9,8 @@ public class CountryBuilder {
 
     private Long id;
     private String code;
-    private String code3;
     private int phoneCode;
+    private String name;
 
     private CountryBuilder() {
 
@@ -24,7 +24,6 @@ public class CountryBuilder {
         Country country = new Country();
         country.setId(id);
         country.setCode(code);
-        country.setCode3(code3);
         country.setPhoneCode(phoneCode);
         return country;
     }
@@ -39,13 +38,13 @@ public class CountryBuilder {
         return this;
     }
 
-    public CountryBuilder withCode3(String code3){
-        this.code3 = code3;
+    public CountryBuilder withPhoneCode(int phoneCode){
+        this.phoneCode = phoneCode;
         return this;
     }
 
-    public CountryBuilder withPhoneCode(int phoneCode){
-        this.phoneCode = phoneCode;
+    public CountryBuilder withName(String name){
+        this.name = name;
         return this;
     }
 }
