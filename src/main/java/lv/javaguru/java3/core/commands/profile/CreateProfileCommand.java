@@ -1,33 +1,41 @@
 package lv.javaguru.java3.core.commands.profile;
 
 import lv.javaguru.java3.core.commands.DomainCommand;
+import lv.javaguru.java3.core.domain.Contact;
+import lv.javaguru.java3.core.domain.LoginCredentials;
 
 /**
  * Created by User on 10.11.2015..
  */
 public class CreateProfileCommand implements DomainCommand<CreateProfileResult> {
 
-    private String code;
-    private String code3;
-    private int phoneCode;
     private String name;
+    private String surname;
+    private Contact contact;
+    private LoginCredentials loginCredentials;
 
-    public CreateProfileCommand(String code, String code3, int phoneCode, String name) {
-        this.code = code;
-        this.code3 = code3;
-        this.phoneCode = phoneCode;
+    public CreateProfileCommand(String name, String surname, Contact contact, LoginCredentials loginCredentials) {
         this.name = name;
+        this.surname = surname;
+
+        this.contact = contact;
+        this.loginCredentials = loginCredentials;
     }
 
-    public String getCode() {
-        return code;
+
+    public String getName() {
+        return name;
     }
 
-    public String getCode3() {
-        return code3;
+    public String getSurname() {
+        return surname;
     }
 
-    public int getPhoneCode() { return phoneCode; }
+    public Contact getContact() {
+        return contact;
+    }
 
-    public String getName() { return name; }
+    public LoginCredentials getLoginCredentials() {
+        return loginCredentials;
+    }
 }

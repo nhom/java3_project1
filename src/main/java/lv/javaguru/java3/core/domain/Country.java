@@ -17,9 +17,6 @@ public class Country {
     @Column(name="code", nullable = true)
     private String code;
 
-    @Column(name="code3", nullable = true)
-    private String code3;
-
     @Column(name="phone_code", nullable = true)
     private int phoneCode;
 
@@ -40,14 +37,6 @@ public class Country {
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public String getCode3() {
-        return code3;
-    }
-
-    public void setCode3(String code3) {
-        this.code3 = code3;
     }
 
     public int getPhoneCode() {

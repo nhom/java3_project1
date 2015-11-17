@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by User on 10.11.2015..
  */
 @Entity
-@Table(name="ticket")
+@Table(name="tickets")
 public class Ticket {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -17,9 +17,9 @@ public class Ticket {
     @Column(name="price", nullable = true)
     private int price;
 
-    @Column(name = "date", columnDefinition="DATETIME")
+    @Column(name = "purchaseDate", columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+    private Date purchaseDate;
 
     @OneToMany
     @JoinColumn(name = "event_id")
@@ -27,7 +27,7 @@ public class Ticket {
 
     @OneToMany
     @JoinColumn(name = "profile_id")
-    private Profile participant;
+    private Profile owner;
 
     public Long getId() {
         return id;
@@ -45,20 +45,12 @@ public class Ticket {
         this.price = price;
     }
 
-    public Date getDate() {
-        return date;
+    public Profile getOwner() {
+        return owner;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Profile getParticipant() {
-        return participant;
-    }
-
-    public void setParticipant(Profile participant) {
-        this.participant = participant;
+    public void setOwner(Profile owner) {
+        this.owner = owner;
     }
 
     public Event getEvent() {
@@ -69,4 +61,11 @@ public class Ticket {
         this.event = event;
     }
 
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
 }

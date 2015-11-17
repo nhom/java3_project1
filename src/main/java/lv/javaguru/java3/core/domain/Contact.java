@@ -19,6 +19,10 @@ public class Contact {
     @JoinColumn(name = "country_id")
     private Country country;
 
+    @OneToOne
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
+
     @Column(name="phone_number", nullable = true)
     private int phoneNumber;
 
@@ -49,7 +53,6 @@ public class Contact {
         this.country = country;
     }
 
-
     public int getPhoneNumber() {
         return phoneNumber;
     }
@@ -72,5 +75,13 @@ public class Contact {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

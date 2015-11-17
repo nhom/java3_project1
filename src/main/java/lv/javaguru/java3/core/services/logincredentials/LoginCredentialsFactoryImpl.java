@@ -13,7 +13,6 @@ class LoginCredentialsFactoryImpl implements LoginCredentialsFactory {
     @Autowired private LoginCredentialsValidator loginCredentialsValidator;
     @Autowired private LoginCredentialsDAO loginCredentialsDAO;
 
-
     @Override
     public LoginCredentials create(String login, String password) {
         loginCredentialsValidator.validate(login, password);

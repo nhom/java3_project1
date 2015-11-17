@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.services.logincredentials.handlers;
+package lv.javaguru.java3.core.commands.logincredentials;
 
 import lv.javaguru.java3.core.commands.logincredentials.CreateLoginCredentialsCommand;
 import lv.javaguru.java3.core.commands.logincredentials.CreateLoginCredentialsResult;
@@ -14,7 +14,6 @@ class CreateLoginCredentialsCommandHandler
 
 	@Autowired
 	private LoginCredentialsFactory loginCredentialsFactory;
-
 
 	@Override
 	public CreateLoginCredentialsResult execute(CreateLoginCredentialsCommand command) {
