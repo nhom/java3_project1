@@ -225,11 +225,11 @@
         </rollback>
     </changeSet>
 
-    <!-- Table structure for table `Adress` -->
+    <!-- Table structure for table `Address` -->
     <changeSet id="11" dbms="mysql" author="vlad" context="main">
         <sql>
-            CREATE TABLE `adresses` (
-            `adress_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            CREATE TABLE `addresses` (
+            `address_id` bigint(20) NOT NULL AUTO_INCREMENT,
             `city_id` bigint(20) NOT NULL,
             `country_id` bigint(20) NOT NULL,
             `street` varchar(50) NOT NULL,

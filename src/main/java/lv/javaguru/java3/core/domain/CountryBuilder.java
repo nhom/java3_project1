@@ -1,7 +1,5 @@
 package lv.javaguru.java3.core.domain;
 
-import java.util.Date;
-
 /**
  * Created by Edgar on 09-Nov-15.
  */
@@ -25,6 +23,7 @@ public class CountryBuilder {
         country.setId(id);
         country.setCode(code);
         country.setPhoneCode(phoneCode);
+        country.setName(this.name);
         return country;
     }
 

@@ -1,8 +1,6 @@
 package lv.javaguru.java3.core.domain;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Edgar on 08-Nov-15.

@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.dto;
+package lv.javaguru.java3.core.dto.contact;
 
 /**
  * Created by Edgar on 10-Nov-15.
@@ -43,6 +43,21 @@ public class ContactDTOBuilder {
 
     public ContactDTOBuilder withCountryCode(String countryCode) {
         this.countryCode = countryCode;
+        return this;
+    }
+
+    public ContactDTOBuilder withPhoneCode(int phoneCode) {
+        this.phoneCode = phoneCode;
+        return this;
+    }
+
+    public ContactDTOBuilder withPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        return this;
+    }
+
+    public ContactDTOBuilder withEmail(String email){
+        this.email = email;
         return this;
     }
 }

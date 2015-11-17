@@ -1,10 +1,7 @@
 package lv.javaguru.java3.core.commands.contact;
 
 import lv.javaguru.java3.core.commands.DomainCommand;
-import lv.javaguru.java3.core.commands.logincredentials.UpdateLoginCredentialsResult;
-import lv.javaguru.java3.core.domain.Country;
-import lv.javaguru.java3.core.domain.CountryBuilder;
-import lv.javaguru.java3.core.dto.ContactDTO;
+import lv.javaguru.java3.core.dto.contact.ContactDTO;
 
 /**
  * Created by Edgar on 09-Nov-15.

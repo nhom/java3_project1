@@ -1,7 +1,7 @@
 package lv.javaguru.java3.core.commands.contact;
 
 import lv.javaguru.java3.core.commands.DomainCommandResult;
-import lv.javaguru.java3.core.dto.ContactDTO;
+import lv.javaguru.java3.core.dto.contact.ContactDTO;
 
 /**
  * Created by Edgar on 09-Nov-15.

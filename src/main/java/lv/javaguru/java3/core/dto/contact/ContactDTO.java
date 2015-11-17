@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.dto;
+package lv.javaguru.java3.core.dto.contact;
 
 import java.io.Serializable;
 

@@ -1,7 +1,6 @@
 package lv.javaguru.java3.core.services.country;
 
 import lv.javaguru.java3.core.domain.Country;
-import lv.javaguru.java3.core.domain.LoginCredentials;
 
 /**
  * Created by Edgar on 10-Nov-15.

@@ -1,5 +1,7 @@
 package lv.javaguru.java3.core.services.logincredentials;
 
+import lv.javaguru.java3.core.commands.contact.CreateContactCommand;
+import lv.javaguru.java3.core.commands.contact.CreateContactCommandHandler;
 import lv.javaguru.java3.core.database.logincredentials.LoginCredentialsDAO;
 import lv.javaguru.java3.core.domain.LoginCredentials;
 import org.junit.Test;
@@ -54,6 +56,16 @@ public class LoginCredentialsFactoryImplTest {
         LoginCredentials loginCredentials = loginCredentialsFactory.create(LOGIN, PASSWORD);
         assertThat(loginCredentials.getLogin(), is(LOGIN));
         assertThat(loginCredentials.getPassword(), is(PASSWORD));
+    }
+
+
+    @Test
+    public void test1(){
+        CreateContactCommandHandler handler = new CreateContactCommandHandler();
+        Long id = new Long(345);
+        CreateContactCommand command = new CreateContactCommand(id, 234234234, "edgar@sdjfhsd.lv");
+        handler.execute(command);
+
     }
 
 }

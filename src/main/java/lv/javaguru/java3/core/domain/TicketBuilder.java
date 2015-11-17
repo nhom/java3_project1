@@ -1,7 +1,5 @@
 package lv.javaguru.java3.core.domain;
 
-import java.util.Date;
-
 /**
  * Created by Edgar on 10-Nov-15.
  */
