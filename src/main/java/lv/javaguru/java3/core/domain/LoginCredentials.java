@@ -1,7 +1,11 @@
 package lv.javaguru.java3.core.domain;
 
+import lv.javaguru.java3.core.dto.logincredentials.LoginCredentialsDTO;
+
 import javax.persistence.*;
 import java.util.Date;
+
+import static lv.javaguru.java3.core.dto.logincredentials.LoginCredentialsDTOBuilder.createLoginCredentialsDTO;
 
 @Entity
 @Table(name="logincredentials")
@@ -72,5 +76,15 @@ public class LoginCredentials {
 
     public Profile getProfile() {
         return profile;
+    }
+
+    public LoginCredentialsDTO getDTO(){
+        return createLoginCredentialsDTO()
+                .withId(this.id)
+                .withLogin(this.login)
+                .withPassword(this.password)
+                .withUpdated(this.lastLogin)
+                .withCreated(this.created)
+                .build();
     }
 }

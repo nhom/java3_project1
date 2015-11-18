@@ -5,12 +5,9 @@ package lv.javaguru.java3.core.dto.contact;
  */
 public class ContactDTOBuilder {
     private Long id;
-    private String countryName;
-    private String countryCode;
-    private int phoneCode;
+    private Long countryId;
     private int phoneNumber;
     private String email;
-
 
     private ContactDTOBuilder() {
 
@@ -23,9 +20,7 @@ public class ContactDTOBuilder {
     public ContactDTO build() {
         ContactDTO contact = new ContactDTO();
         contact.setId(id);
-        contact.setCountryName(countryName);
-        contact.setCountryCode(countryCode);
-        contact.setPhoneCode(phoneCode);
+        contact.setCountryId(countryId);
         contact.setPhoneNumber(phoneNumber);
         contact.setEmail(email);
         return contact;
@@ -36,18 +31,8 @@ public class ContactDTOBuilder {
         return this;
     }
 
-    public ContactDTOBuilder withCountryName(String countryName) {
-        this.countryName = countryName;
-        return this;
-    }
-
-    public ContactDTOBuilder withCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-        return this;
-    }
-
-    public ContactDTOBuilder withPhoneCode(int phoneCode) {
-        this.phoneCode = phoneCode;
+    public ContactDTOBuilder withCountryId(Long countryId) {
+        this.countryId = countryId;
         return this;
     }
 

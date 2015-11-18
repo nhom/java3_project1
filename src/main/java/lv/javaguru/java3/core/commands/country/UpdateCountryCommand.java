@@ -10,18 +10,15 @@ public class UpdateCountryCommand implements DomainCommand<UpdateCountryResult> 
     private Long countryId;
 
     private String code;
-    private String code3;
     private int phoneCode;
     private String name;
 
     public UpdateCountryCommand(Long countryId,
                                 String code,
-                                String code3,
                                 int phoneCode,
                                 String name) {
         this.countryId = countryId;
         this.code = code;
-        this.code3 = code3;
         this.phoneCode = phoneCode;
         this.name = name;
     }
@@ -32,10 +29,6 @@ public class UpdateCountryCommand implements DomainCommand<UpdateCountryResult> 
 
     public String getCode() {
         return code;
-    }
-
-    public String getCode3() {
-        return code3;
     }
 
     public int getPhoneCode() { return phoneCode; }

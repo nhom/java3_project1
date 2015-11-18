@@ -7,32 +7,11 @@ import java.io.Serializable;
  */
 public class ContactDTO implements Serializable {
     private Long id;
-    private String countryName;
-    private String countryCode;
-    private int phoneCode;
+    private Long countryId;
     private int phoneNumber;
     private String email;
 
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public int getPhoneCode() {
-        return phoneCode;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
+    // id
     public Long getId() {
         return id;
     }
@@ -41,23 +20,32 @@ public class ContactDTO implements Serializable {
         this.id = id;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    // country_id
+    public Long getCountryId() {
+        return countryId;
     }
 
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
+    public void setCountryId(Long countryId) {
+        this.countryId = countryId;
     }
 
-    public void setPhoneCode(int phoneCode) {
-        this.phoneCode = phoneCode;
+    // phone_number
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    // email
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

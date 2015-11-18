@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static lv.javaguru.java3.core.domain.ContactBuilder.createContact;
-import static lv.javaguru.java3.core.domain.CountryBuilder.createCountry;
 
 /**
  * Created by Edgar on 10-Nov-15.
@@ -26,14 +25,16 @@ public class ContactFactoryImpl implements ContactFactory {
 
     @Override
     public Contact create(Country country, int phoneNumber, String email) {
+        contactValidator.validate(phoneNumber, email);
 
-        contactValidator.validate(country, phoneNumber, email);
         Contact contact = createContact()
                 .withCountry(country)
                 .withPhone(phoneNumber)
                 .withEmail(email)
                 .build();
+
         contactDAO.create(contact);
+
         return contact;
     }
 }

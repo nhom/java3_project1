@@ -1,7 +1,5 @@
 package lv.javaguru.java3.core.commands.country;
 
-import lv.javaguru.java3.core.commands.country.CreateCountryCommand;
-import lv.javaguru.java3.core.commands.country.CreateCountryResult;
 import lv.javaguru.java3.core.domain.Country;
 import lv.javaguru.java3.core.services.DomainCommandHandler;
 import lv.javaguru.java3.core.services.country.CountryFactory;
@@ -24,7 +22,7 @@ public class CreateCountryCommandHandler implements DomainCommandHandler<CreateC
                 command.getCode(),
                 command.getPhoneCode()
         );
-        return new CreateCountryResult(country);
+        return new CreateCountryResult(country.getDTO());
     }
 
     @Override

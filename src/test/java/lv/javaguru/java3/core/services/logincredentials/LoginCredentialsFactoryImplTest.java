@@ -4,6 +4,7 @@ import lv.javaguru.java3.core.commands.contact.CreateContactCommand;
 import lv.javaguru.java3.core.commands.contact.CreateContactCommandHandler;
 import lv.javaguru.java3.core.database.logincredentials.LoginCredentialsDAO;
 import lv.javaguru.java3.core.domain.LoginCredentials;
+import lv.javaguru.java3.core.dto.contact.ContactDTOBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
@@ -63,6 +64,7 @@ public class LoginCredentialsFactoryImplTest {
     public void test1(){
         CreateContactCommandHandler handler = new CreateContactCommandHandler();
         Long id = new Long(345);
+
         CreateContactCommand command = new CreateContactCommand(id, 234234234, "edgar@sdjfhsd.lv");
         handler.execute(command);
 

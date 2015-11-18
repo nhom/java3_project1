@@ -18,27 +18,18 @@ public class ContactValidatorImpl implements ContactValidator {
 
 
     @Override
-    public void validate(Country country, Profile profile, int phoneNumber, String email) {
-        validateCountry(country);
-        validateProfile(profile);
+    public void validate(int phoneNumber, String email) {
         validatePhoneNumber(phoneNumber);
         validateEmail(email);
     }
 
-    private void validateCountry(Country country){
-        countryValidator.validate(country.getName(), country.getCode(), country.getPhoneCode());
-    }
-
-    private void validateProfile(Profile profile){
-        // validate profile
-    }
 
     private void validateEmail(String email) {
         checkNotNull(email, "Email must not be null");
         checkArgument(!isBlank(email), "Email must not be empty");
     }
 
-    private void validatePhoneNumber(int phoneCode) {
-        checkNotNull(phoneCode, "Phone number code must not be null");
+    private void validatePhoneNumber(int phoneNumber) {
+        checkNotNull(phoneNumber, "Phone number code must not be null");
     }
 }

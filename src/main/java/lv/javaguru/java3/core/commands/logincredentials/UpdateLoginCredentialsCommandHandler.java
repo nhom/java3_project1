@@ -23,7 +23,7 @@ class UpdateLoginCredentialsCommandHandler
                 command.getLogin(),
                 command.getPassword()
         );
-        return new UpdateLoginCredentialsResult(loginCredentials);
+        return new UpdateLoginCredentialsResult(loginCredentials.getDTO());
     }
 
     @Override

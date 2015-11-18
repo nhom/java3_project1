@@ -17,5 +17,4 @@ public class GetContactResult  implements DomainCommandResult {
     public ContactDTO getContact() {
         return contact;
     }
-
 }

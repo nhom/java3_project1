@@ -1,16 +1,11 @@
 package lv.javaguru.java3.core.commands.contact;
 
 import lv.javaguru.java3.core.commands.logincredentials.CreateLoginCredentialsCommand;
-import lv.javaguru.java3.core.commands.logincredentials.CreateLoginCredentialsResult;
 import lv.javaguru.java3.core.database.country.CountryDAO;
-import lv.javaguru.java3.core.database.profile.ProfileDAO;
 import lv.javaguru.java3.core.domain.Contact;
 import lv.javaguru.java3.core.domain.Country;
-import lv.javaguru.java3.core.domain.LoginCredentials;
-import lv.javaguru.java3.core.domain.Profile;
 import lv.javaguru.java3.core.services.DomainCommandHandler;
 import lv.javaguru.java3.core.services.contact.ContactFactory;
-import lv.javaguru.java3.core.services.logincredentials.LoginCredentialsFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,9 +15,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreateContactCommandHandler implements DomainCommandHandler<CreateContactCommand, CreateContactResult> {
     @Autowired private ContactFactory contactFactory;
+    // we can use here DAO objects
     @Autowired private CountryDAO countryDAO;
 
-    // sdesj nado ispolzovatj DTO vizde v ostalnom proekte ISPOLZOVATJ DOMAIN OBJECTI!!!!!!
     @Override
     public CreateContactResult execute(CreateContactCommand command) {
         Country country = countryDAO.getById(command.getCountryId());
@@ -32,7 +27,8 @@ public class CreateContactCommandHandler implements DomainCommandHandler<CreateC
                 command.getPhoneNumber(),
                 command.getEmail()
         );
-        return new CreateContactResult(contact);
+
+        return new CreateContactResult(contact.getDTO());
     }
 
     @Override

@@ -1,7 +1,11 @@
 package lv.javaguru.java3.core.domain;
 
+import lv.javaguru.java3.core.dto.contact.ContactDTO;
+
 import javax.persistence.*;
 import java.util.Date;
+
+import static lv.javaguru.java3.core.dto.contact.ContactDTOBuilder.createContactDTO;
 
 /**
  * Created by Edgar on 08-Nov-15.
@@ -71,5 +75,14 @@ public class Contact {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public ContactDTO getDTO(){
+       return createContactDTO()
+                .withId(this.id)
+                .withCountryId(this.country.getId())
+                .withPhoneNumber(this.phoneNumber)
+                .withEmail(this.email)
+                .build();
     }
 }
