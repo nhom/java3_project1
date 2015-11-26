@@ -26,4 +26,10 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="3" author="vlad" context="main">
+        <dropTable tableName="clients"/>
+    </changeSet>
+
+
+
 </databaseChangeLog>

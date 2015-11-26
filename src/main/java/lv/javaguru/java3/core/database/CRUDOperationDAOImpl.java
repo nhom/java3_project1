@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.database.clients;
+package lv.javaguru.java3.core.database;
 
 import lv.javaguru.java3.core.database.CRUDOperationDAO;
 import org.hibernate.Session;

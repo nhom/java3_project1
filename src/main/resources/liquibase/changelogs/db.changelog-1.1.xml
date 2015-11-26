@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <!-- Table structure for table `countries` -->
+    <changeSet id="4" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `countries` (
+            `country_id` bigint(20) NOT NULL,
+            `name` varchar(70) NOT NULL DEFAULT '',
+            `code` char(2) NOT NULL DEFAULT '',
+            `code3` char(3) NOT NULL,
+            `phone_code` int(7) NOT NULL,
+            PRIMARY KEY (`country_id`),
+            UNIQUE KEY `code` (`code`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE `countries`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `city` -->
+    <changeSet id="5" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `cities` (
+            `city_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `city_id_uindex` (`city_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `cities`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `Adress` -->
+    <changeSet id="6" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `adresses` (
+            `adress_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `city_id` bigint(20) NOT NULL,
+            `country_id` bigint(20) NOT NULL,
+            `street` varchar(50) NOT NULL,
+            `building_number` int(7) NOT NULL,
+            `zip_code` int(5) DEFAULT NULL,
+            PRIMARY KEY (`adress_id`),
+            UNIQUE KEY `adress_id_uindex` (`adress_id`),
+            FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`),
+            FOREIGN KEY (`country_id`) REFERENCES `countries` (`country_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `adresses`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `notification_status` -->
+    <changeSet id="7" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `notification_status` (
+            `status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `notif_status_id_uindex` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `notification_status`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `notification_type` -->
+    <changeSet id="8" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `notification_type` (
+            `type_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `notif_type_id_uindex` (`type_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `notification_type`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `notification` -->
+    <changeSet id="9" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `notification` (
+            `notification_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            `description` text NOT NULL,
+            `created` datetime NOT NULL,
+            `status_id` bigint(20) NOT NULL,
+            `type_id` bigint(20) NOT NULL,
+            PRIMARY KEY (`notification_id`),
+            CONSTRAINT `notification_to_not_type__fk` FOREIGN KEY (`type_id`) REFERENCES `notification_type` (`type_id`),
+            CONSTRAINT `notification_to_not_status__fk` FOREIGN KEY (`status_id`) REFERENCES `notification_status` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `adresses`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>
