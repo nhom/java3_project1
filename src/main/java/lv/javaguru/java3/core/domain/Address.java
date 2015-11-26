@@ -6,18 +6,17 @@ import javax.persistence.*;
  * Created by Vladislav on 11/9/2015.
  */
 @Entity
-@Table(name="adresses")
-public class Adress {
+@Table(name="addresses")
+public class Address {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="adress_id",unique = true, nullable = false)
+    @Column(name="address_id",unique = true, nullable = false)
     private Long id;
 
     @OneToOne
     @JoinColumn(name = "country_id")
     private Country country;
-
 
     @OneToOne
     @JoinColumn(name = "city_id")

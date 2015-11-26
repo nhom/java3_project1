@@ -2,20 +2,20 @@ package lv.javaguru.java3.core.commands.contact;
 
 import lv.javaguru.java3.core.commands.DomainCommandResult;
 import lv.javaguru.java3.core.domain.Contact;
-import lv.javaguru.java3.core.domain.LoginCredentials;
+import lv.javaguru.java3.core.dto.contact.ContactDTO;
 
 /**
  * Created by Edgar on 09-Nov-15.
  */
 public class UpdateContactResult implements DomainCommandResult {
 
-    private Contact contact;
+    private ContactDTO contact;
 
-    public UpdateContactResult(Contact contact) {
+    public UpdateContactResult(ContactDTO contact) {
         this.contact = contact;
     }
 
-    public Contact getContact() {
+    public ContactDTO getContact() {
         return contact;
     }
 }

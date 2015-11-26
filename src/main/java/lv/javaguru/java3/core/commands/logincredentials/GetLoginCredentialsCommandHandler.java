@@ -1,7 +1,5 @@
 package lv.javaguru.java3.core.commands.logincredentials;
 
-import lv.javaguru.java3.core.commands.logincredentials.GetLoginCredentialsCommand;
-import lv.javaguru.java3.core.commands.logincredentials.GetLoginCredentialsResult;
 import lv.javaguru.java3.core.domain.LoginCredentials;
 import lv.javaguru.java3.core.services.DomainCommandHandler;
 import lv.javaguru.java3.core.services.logincredentials.LoginCredentialsService;
@@ -19,7 +17,7 @@ class GetLoginCredentialsCommandHandler
     @Override
     public GetLoginCredentialsResult execute(GetLoginCredentialsCommand command) {
         LoginCredentials loginCredentials = loginCredentialsService.get(command.getClientId());
-        return new GetLoginCredentialsResult(loginCredentials);
+        return new GetLoginCredentialsResult(loginCredentials.getDTO());
     }
 
     @Override

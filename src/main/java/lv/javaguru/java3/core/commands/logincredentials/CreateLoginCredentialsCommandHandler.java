@@ -21,7 +21,8 @@ class CreateLoginCredentialsCommandHandler
 				command.getLogin(),
 				command.getPassword()
 		);
-		return new CreateLoginCredentialsResult(loginCredentials);
+
+		return new CreateLoginCredentialsResult(loginCredentials.getDTO());
 	}
 
 	@Override

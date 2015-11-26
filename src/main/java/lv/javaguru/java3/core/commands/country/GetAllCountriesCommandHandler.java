@@ -1,27 +1,33 @@
 package lv.javaguru.java3.core.commands.country;
 
-import lv.javaguru.java3.core.commands.country.GetCountryCommand;
-import lv.javaguru.java3.core.commands.country.GetCountryResult;
 import lv.javaguru.java3.core.commands.logincredentials.GetLoginCredentialsCommand;
 import lv.javaguru.java3.core.domain.Country;
+import lv.javaguru.java3.core.dto.country.CountryDTO;
 import lv.javaguru.java3.core.services.DomainCommandHandler;
 import lv.javaguru.java3.core.services.country.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Created by Edgar on 10-Nov-15.
+ * Created by Edgar on 18-Nov-15.
  */
 @Component
-public class GetCountryCommandHandler implements DomainCommandHandler<GetCountryCommand, GetCountryResult> {
+public class GetAllCountriesCommandHandler implements DomainCommandHandler<GetAllCountriesCommand, GetAllCountriesResult> {
     @Autowired
     private CountryService countryService;
 
 
     @Override
-    public GetCountryResult execute(GetCountryCommand command) {
-        Country country = countryService.get(command.getCountryId());
-        return new GetCountryResult(country.getDTO());
+    public GetAllCountriesResult execute(GetAllCountriesCommand command) {
+        List<Country> countries = countryService.getAll();
+        List<CountryDTO> countriesDTO = new ArrayList<CountryDTO>();
+        for(Country country: countries){
+            countriesDTO.add(country.getDTO());
+        }
+        return new GetAllCountriesResult(countriesDTO);
     }
 
     @Override

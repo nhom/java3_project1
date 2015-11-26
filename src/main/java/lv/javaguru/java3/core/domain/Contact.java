@@ -1,7 +1,11 @@
 package lv.javaguru.java3.core.domain;
 
+import lv.javaguru.java3.core.dto.contact.ContactDTO;
+
 import javax.persistence.*;
 import java.util.Date;
+
+import static lv.javaguru.java3.core.dto.contact.ContactDTOBuilder.createContactDTO;
 
 /**
  * Created by Edgar on 08-Nov-15.
@@ -18,10 +22,6 @@ public class Contact {
     @OneToOne
     @JoinColumn(name = "country_id")
     private Country country;
-
-    @OneToOne
-    @JoinColumn(name = "profile_id")
-    private Profile profile;
 
     @Column(name="phone_number", nullable = true)
     private int phoneNumber;
@@ -77,11 +77,12 @@ public class Contact {
         this.created = created;
     }
 
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public ContactDTO getDTO(){
+       return createContactDTO()
+                .withId(this.id)
+                .withCountryId(this.country.getId())
+                .withPhoneNumber(this.phoneNumber)
+                .withEmail(this.email)
+                .build();
     }
 }

@@ -1,6 +1,9 @@
 package lv.javaguru.java3.core.domain;
 
+import lv.javaguru.java3.core.dto.country.CountryDTO;
 import javax.persistence.*;
+
+import static lv.javaguru.java3.core.dto.country.CountryDTOBuilder.createCountryDTO;
 
 /**
  * Created by Edgar on 08-Nov-15.
@@ -53,5 +56,14 @@ public class Country {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CountryDTO getDTO(){
+        return createCountryDTO()
+                .withId(this.id)
+                .withCode(this.code)
+                .withPhoneCode(this.phoneCode)
+                .withName(this.name)
+                .build();
     }
 }
