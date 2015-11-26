@@ -1,6 +1,6 @@
 package lv.javaguru.java3.core.services.logincredentials;
 
-import lv.javaguru.java3.core.domain.user.LoginCredentials;
+import lv.javaguru.java3.core.domain.LoginCredentials;
 
 public interface LoginCredentialsFactory {
 

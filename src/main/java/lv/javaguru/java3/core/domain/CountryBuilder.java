@@ -1,6 +1,4 @@
-package lv.javaguru.java3.core.domain.loaction;
-
-import java.util.Date;
+package lv.javaguru.java3.core.domain;
 
 /**
  * Created by Edgar on 09-Nov-15.

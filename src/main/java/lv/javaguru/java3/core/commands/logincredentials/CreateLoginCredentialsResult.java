@@ -1,7 +1,7 @@
 package lv.javaguru.java3.core.commands.logincredentials;
 
 import lv.javaguru.java3.core.commands.DomainCommandResult;
-import lv.javaguru.java3.core.domain.user.LoginCredentials;
+import lv.javaguru.java3.core.domain.LoginCredentials;
 
 public class CreateLoginCredentialsResult implements DomainCommandResult {
 

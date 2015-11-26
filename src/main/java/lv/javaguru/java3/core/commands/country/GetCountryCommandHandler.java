@@ -1,9 +1,7 @@
 package lv.javaguru.java3.core.commands.country;
 
-import lv.javaguru.java3.core.commands.country.GetCountryCommand;
-import lv.javaguru.java3.core.commands.country.GetCountryResult;
 import lv.javaguru.java3.core.commands.logincredentials.GetLoginCredentialsCommand;
-import lv.javaguru.java3.core.domain.loaction.Country;
+import lv.javaguru.java3.core.domain.Country;
 import lv.javaguru.java3.core.services.DomainCommandHandler;
 import lv.javaguru.java3.core.services.country.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;

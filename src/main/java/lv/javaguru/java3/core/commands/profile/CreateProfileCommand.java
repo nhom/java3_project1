@@ -1,8 +1,8 @@
 package lv.javaguru.java3.core.commands.profile;
 
 import lv.javaguru.java3.core.commands.DomainCommand;
-import lv.javaguru.java3.core.domain.user.Contact;
-import lv.javaguru.java3.core.domain.user.LoginCredentials;
+import lv.javaguru.java3.core.domain.Contact;
+import lv.javaguru.java3.core.domain.LoginCredentials;
 
 /**
  * Created by User on 10.11.2015..

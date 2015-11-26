@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.domain.loaction;
+package lv.javaguru.java3.core.domain;
 
 /**
  * Created by Vladislav on 11/9/2015.

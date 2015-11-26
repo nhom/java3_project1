@@ -1,7 +1,7 @@
 package lv.javaguru.java3.core.services.country;
 
 import lv.javaguru.java3.core.database.location.country.CountryDAO;
-import lv.javaguru.java3.core.domain.loaction.Country;
+import lv.javaguru.java3.core.domain.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

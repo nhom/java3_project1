@@ -1,7 +1,7 @@
 package lv.javaguru.java3.core.database.user.contact;
 
 import lv.javaguru.java3.core.database.CRUDOperationDAOImpl;
-import lv.javaguru.java3.core.domain.user.Contact;
+import lv.javaguru.java3.core.domain.Contact;
 import org.springframework.stereotype.Component;
 
 /**

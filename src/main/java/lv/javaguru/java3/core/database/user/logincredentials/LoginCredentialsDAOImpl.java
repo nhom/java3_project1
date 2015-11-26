@@ -1,7 +1,7 @@
 package lv.javaguru.java3.core.database.user.logincredentials;
 
 import lv.javaguru.java3.core.database.CRUDOperationDAOImpl;
-import lv.javaguru.java3.core.domain.user.LoginCredentials;
+import lv.javaguru.java3.core.domain.LoginCredentials;
 import org.springframework.stereotype.Component;
 
 @Component

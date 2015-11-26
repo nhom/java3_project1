@@ -1,6 +1,4 @@
-package lv.javaguru.java3.core.domain.user;
-
-import lv.javaguru.java3.core.domain.loaction.Country;
+package lv.javaguru.java3.core.domain;
 
 import javax.persistence.*;
 import java.util.Date;

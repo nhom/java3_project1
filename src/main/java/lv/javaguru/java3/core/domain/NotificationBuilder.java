@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.domain.notification;
+package lv.javaguru.java3.core.domain;
 
 import java.util.Date;
 

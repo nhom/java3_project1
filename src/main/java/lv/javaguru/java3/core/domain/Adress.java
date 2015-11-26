@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.domain.loaction;
+package lv.javaguru.java3.core.domain;
 
 import javax.persistence.*;
 

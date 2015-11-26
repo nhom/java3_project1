@@ -1,8 +1,6 @@
 package lv.javaguru.java3.core.commands.logincredentials;
 
-import lv.javaguru.java3.core.commands.logincredentials.CreateLoginCredentialsCommand;
-import lv.javaguru.java3.core.commands.logincredentials.CreateLoginCredentialsResult;
-import lv.javaguru.java3.core.domain.user.LoginCredentials;
+import lv.javaguru.java3.core.domain.LoginCredentials;
 import lv.javaguru.java3.core.services.DomainCommandHandler;
 import lv.javaguru.java3.core.services.logincredentials.LoginCredentialsFactory;
 import org.springframework.beans.factory.annotation.Autowired;

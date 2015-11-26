@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.domain.user;
+package lv.javaguru.java3.core.domain;
 
 public class LoginCredentialsBuilder {
 
