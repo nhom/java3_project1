@@ -1,12 +1,7 @@
-package lv.javaguru.java3.core.domain.users;
-
-import lv.javaguru.java3.core.domain.users.Contact;
-import lv.javaguru.java3.core.domain.users.LoginCredentials;
+package lv.javaguru.java3.core.domain.user;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name="profile")

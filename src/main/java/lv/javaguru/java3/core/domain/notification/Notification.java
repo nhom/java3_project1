@@ -10,7 +10,7 @@ public class Notification {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="status_id",unique = true, nullable = false)
-    int id;
+    Long id;
 
     @Column(name="title",unique = true, nullable = false)
     String title;
@@ -35,11 +35,11 @@ public class Notification {
     //Profile recepient;
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

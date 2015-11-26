@@ -1,4 +1,4 @@
-package lv.javaguru.java3.core.domain.users;
+package lv.javaguru.java3.core.domain.user;
 
 import javax.persistence.*;
 import java.util.Date;
