@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <!-- Table structure for table `loginstatus` -->
+    <changeSet id="10" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `login_status` (
+            `status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(50) NOT NULL,
+            UNIQUE KEY `status_id_uindex` (`status_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `login_status`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
+    <!-- Interconnected dependencies -->
+
+
+    <!-- Table structure for table `login_credentials` -->
+    <changeSet id="11" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `login_credentials` (
+            `login_credential_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+            `login` varchar(50) NOT NULL,
+            `password` varchar(50) NOT NULL,
+            `profile_id` bigint(20),
+            `created` datetime DEFAULT NULL,
+            `last_login` datetime NOT NULL,
+            FOREIGN KEY `login_credentials_profile_id_uindex` (`profile_id`),
+            PRIMARY KEY (`login_credential_id`)
+            ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `login_credentials`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `profile` -->
+    <changeSet id="11" dbms="mysql" author="vlad" context="main">
+        <sql>
+            CREATE TABLE `profile` (
+            `profile_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `name` varchar(50) NOT NULL,
+            `surname` varchar(100) NOT NULL,
+            `contact_id` bigint(20) DEFAULT NULL,
+            `login_credentials_id` bigint(20) NOT NULL,
+            `created` datetime NOT NULL,
+            `updated` datetime NOT NULL,
+            PRIMARY KEY (`profile_id`),
+            UNIQUE KEY `profile_id_uindex` (`profile_id`),
+            KEY `profile_contact__fk` (`contact_id`),
+            CONSTRAINT `profile_contact__fk` FOREIGN KEY (`contact_id`) REFERENCES `contact` (`contact_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `profile`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `contact` -->
+    <changeSet id="3" dbms="mysql" author="edgar" context="main">
+        <sql>
+            CREATE TABLE `contact` (
+            `contact_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `phone_number` int(11) DEFAULT NULL,
+            `email` varchar(50) DEFAULT NULL,
+            `updated` datetime DEFAULT NULL,
+            `created` datetime NOT NULL,
+            `country_id` bigint(20) NOT NULL,
+            PRIMARY KEY (`contact_id`),
+            UNIQUE KEY `contact_id_uindex` (`contact_id`),
+            KEY `contact_countries__fk` (`country_id`),
+            CONSTRAINT `contact_countries__fk` FOREIGN KEY (`country_id`) REFERENCES `countries` (`country_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE `contact`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>
