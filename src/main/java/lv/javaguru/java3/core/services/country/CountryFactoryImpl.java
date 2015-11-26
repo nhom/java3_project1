@@ -1,12 +1,12 @@
 package lv.javaguru.java3.core.services.country;
 
 import lv.javaguru.java3.core.database.location.country.CountryDAO;
-import lv.javaguru.java3.core.domain.Country;
+import lv.javaguru.java3.core.domain.loaction.Country;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static lv.javaguru.java3.core.domain.CountryBuilder.createCountry;
+import static lv.javaguru.java3.core.domain.loaction.CountryBuilder.createCountry;
 
 /**
  * Created by Edgar on 10-Nov-15.

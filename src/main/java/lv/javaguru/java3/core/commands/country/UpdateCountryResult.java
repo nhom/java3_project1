@@ -1,7 +1,7 @@
 package lv.javaguru.java3.core.commands.country;
 
 import lv.javaguru.java3.core.commands.DomainCommandResult;
-import lv.javaguru.java3.core.domain.Country;
+import lv.javaguru.java3.core.domain.loaction.Country;
 
 /**
  * Created by User on 10.11.2015..

@@ -1,7 +1,7 @@
 package lv.javaguru.java3.core.commands.profile;
 
 import lv.javaguru.java3.core.commands.DomainCommandResult;
-import lv.javaguru.java3.core.domain.Profile;
+import lv.javaguru.java3.core.domain.user.Profile;
 
 /**
  * Created by User on 10.11.2015..
