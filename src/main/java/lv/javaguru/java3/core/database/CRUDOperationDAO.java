@@ -16,4 +16,5 @@ public interface CRUDOperationDAO<E, K> {
 
     List<E> getAll();
 
+    void deleteAll();
 }
