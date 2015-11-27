@@ -5,10 +5,12 @@ import lv.javaguru.java3.core.domain.Contact;
 import lv.javaguru.java3.core.domain.Country;
 import lv.javaguru.java3.core.services.country.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Edgar on 10-Nov-15.
  */
+@Component
 public class ContactServiceImpl implements ContactService {
 
     @Autowired

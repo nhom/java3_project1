@@ -12,6 +12,7 @@ import java.util.Set;
 public class Event {
 
     // Attributes
+    @Transient /* ******************************* Change this later */
     private Set<Profile> participants;
 
     @Id

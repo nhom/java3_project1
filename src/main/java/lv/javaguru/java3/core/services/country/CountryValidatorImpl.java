@@ -1,5 +1,7 @@
 package lv.javaguru.java3.core.services.country;
 
+import org.springframework.stereotype.Component;
+
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.apache.commons.lang.StringUtils.isBlank;
@@ -8,6 +10,7 @@ import static org.apache.commons.lang.StringUtils.length;
 /**
  * Created by Edgar on 10-Nov-15.
  */
+@Component
 public class CountryValidatorImpl implements CountryValidator{
 
     @Override

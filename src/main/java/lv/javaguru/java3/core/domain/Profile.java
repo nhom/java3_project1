@@ -9,8 +9,8 @@ import java.util.Set;
 @Table(name="profile")
 public class Profile {
 
-    private Set<Event> participatedEvents = new HashSet<>(0);
-    private Set<Event> organizedEvents = new HashSet<>(0);
+//    private Set<Event> participatedEvents = new HashSet<>(0);
+//    private Set<Event> organizedEvents = new HashSet<>(0);
 
     // Attributes
     @Id
@@ -77,24 +77,25 @@ public class Profile {
     }
 
     // Organized events
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organizer")
-    public Set<Event> getOrganizedEvents() {
-        return this.organizedEvents;
-    }
-
-    public void setOrganizedEvents(Set<Event> organizedEvents) {
-        this.organizedEvents = organizedEvents;
-    }
-
-    // Participated events
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "participant")
-    public Set<Event> getParticipatedEvents() {
-        return this.participatedEvents;
-    }
-
-    public void setParticipatedEvents(Set<Event> participatedEvents) {
-        this.participatedEvents = participatedEvents;
-    }
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organizer")
+//    public Set<Event> getOrganizedEvents() {
+//        return this.organizedEvents;
+//    }
+//
+//    public void setOrganizedEvents(Set<Event> organizedEvents) {
+//        this.organizedEvents = organizedEvents;
+//    }
+//
+//    // Participated events
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "participant")
+//    public Set<Event> getParticipatedEvents() {
+//        return this.participatedEvents;
+//    }
+//
+//    public void setParticipatedEvents(Set<Event> participatedEvents) {
+//        this.participatedEvents = participatedEvents;
+//    }
 
     // Updated
     public Date getUpdated() {

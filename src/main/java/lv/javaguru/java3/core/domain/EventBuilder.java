@@ -11,7 +11,7 @@ public class EventBuilder {
     private Long id;
     private String title;
     private String description;
-    private Profile author;
+    private Profile prganizer;
 
     private EventBuilder() {
 
@@ -26,7 +26,7 @@ public class EventBuilder {
         event.setId(id);
         event.setTitle(title);
         event.setDescription(description);
-        event.setAuthor(author);
+        event.setOrganizer(prganizer);
         event.setCreated(new Date());
         return event;
     }
@@ -47,7 +47,7 @@ public class EventBuilder {
     }
 
     public EventBuilder withAuthor(Profile author){
-        this.author = author;
+        this.prganizer = author;
         return this;
     }
 }

@@ -21,10 +21,12 @@ public class Ticket {
     @Temporal(TemporalType.TIMESTAMP)
     private Date purchaseDate;
 
+    @Transient // ************************** CHANGE THIS LATER
     @OneToMany
     @JoinColumn(name = "event_id")
     private Event event;
 
+    @Transient
     @OneToMany
     @JoinColumn(name = "profile_id")
     private Profile owner;

@@ -1,7 +1,7 @@
-package lv.javaguru.java3.core.database.clients;
+package lv.javaguru.java3.core.database.logincredentials;
 
 import lv.javaguru.java3.config.Application;
-import lv.javaguru.java3.core.database.ClientDAO;
+import lv.javaguru.java3.core.database.logincredentials.LoginCredentialsDAO;
 import org.hibernate.SessionFactory;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
@@ -19,5 +19,5 @@ public abstract class DatabaseHibernateTest {
     protected SessionFactory sessionFactory;
 
     @Autowired
-    protected ClientDAO clientDAO;
+    protected LoginCredentialsDAO loginCredentialsDAO;
 }

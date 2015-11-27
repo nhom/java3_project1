@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <!-- Table structure for table `events` -->
+    <changeSet id="6" dbms="mysql" author="edgar" context="main">
+        <sql>
+            CREATE TABLE `events` (
+            `event_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `title` varchar(150) NOT NULL,
+            `description` text NOT NULL,
+            `created` datetime NOT NULL,
+            `updated` datetime DEFAULT NULL,
+            `author_profile_id` bigint(20) NOT NULL,
+            PRIMARY KEY (`event_id`),
+            UNIQUE KEY `events_id_uindex` (`event_id`),
+            KEY `event` (`author_profile_id`),
+            CONSTRAINT `events_profile__fk` FOREIGN KEY (`author_profile_id`) REFERENCES `profile` (`profile_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE `events`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Table structure for table `tickets` -->
+    <changeSet id="8" dbms="mysql" author="edgar" context="main">
+        <sql>
+            CREATE TABLE `tickets` (
+            `ticket_id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `price` int(11) NOT NULL,
+            `purchaseDate` datetime DEFAULT NULL,
+            `profile_id` bigint(20) DEFAULT NULL,
+            `event_id` bigint(20) NOT NULL,
+            PRIMARY KEY (`ticket_id`),
+            UNIQUE KEY `table_name_ticket_id_uindex` (`ticket_id`),
+            KEY `tickets_events__fk` (`event_id`),
+            KEY `tickets_profile__fk` (`profile_id`),
+            CONSTRAINT `tickets_events__fk` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`),
+            CONSTRAINT `tickets_profile__fk` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`profile_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS `tickets`;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>
