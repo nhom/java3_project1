@@ -1,5 +1,7 @@
 package lv.javaguru.java3.core.commands.logincredentials;
 
+import lv.javaguru.java3.core.commands.logincredentials.CreateLoginCredentialsCommand;
+import lv.javaguru.java3.core.commands.logincredentials.CreateLoginCredentialsResult;
 import lv.javaguru.java3.core.domain.LoginCredentials;
 import lv.javaguru.java3.core.services.DomainCommandHandler;
 import lv.javaguru.java3.core.services.logincredentials.LoginCredentialsFactory;
@@ -19,7 +21,8 @@ class CreateLoginCredentialsCommandHandler
 				command.getLogin(),
 				command.getPassword()
 		);
-		return new CreateLoginCredentialsResult(loginCredentials);
+
+		return new CreateLoginCredentialsResult(loginCredentials.getDTO());
 	}
 
 	@Override

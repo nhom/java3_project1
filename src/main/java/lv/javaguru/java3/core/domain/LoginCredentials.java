@@ -1,7 +1,11 @@
 package lv.javaguru.java3.core.domain;
 
+import lv.javaguru.java3.core.dto.logincredentials.LoginCredentialsDTO;
+
 import javax.persistence.*;
 import java.util.Date;
+
+import static lv.javaguru.java3.core.dto.logincredentials.LoginCredentialsDTOBuilder.createLoginCredentialsDTO;
 
 @Entity
 @Table(name="logincredentials")
@@ -26,9 +30,9 @@ public class LoginCredentials {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastLogin;
 
-//    @OneToOne
-//    @JoinColumn(name = "profile_id")
-//    private Profile profile;
+    @OneToOne
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
 
     public Long getId() {
         return id;
@@ -70,7 +74,17 @@ public class LoginCredentials {
         this.lastLogin = lastLogin;
     }
 
-//    public Profile getProfile() {
-//        return profile;
-//    }
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public LoginCredentialsDTO getDTO(){
+        return createLoginCredentialsDTO()
+                .withId(this.id)
+                .withLogin(this.login)
+                .withPassword(this.password)
+                .withUpdated(this.lastLogin)
+                .withCreated(this.created)
+                .build();
+    }
 }

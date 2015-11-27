@@ -23,6 +23,7 @@ public class CountryBuilder {
         country.setId(id);
         country.setCode(code);
         country.setPhoneCode(phoneCode);
+        country.setName(this.name);
         return country;
     }
 

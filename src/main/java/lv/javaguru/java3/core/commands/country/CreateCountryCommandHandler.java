@@ -22,7 +22,7 @@ public class CreateCountryCommandHandler implements DomainCommandHandler<CreateC
                 command.getCode(),
                 command.getPhoneCode()
         );
-        return new CreateCountryResult(country);
+        return new CreateCountryResult(country.getDTO());
     }
 
     @Override

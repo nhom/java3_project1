@@ -1,5 +1,7 @@
 package lv.javaguru.java3.core.commands.logincredentials;
 
+import lv.javaguru.java3.core.commands.logincredentials.UpdateLoginCredentialsCommand;
+import lv.javaguru.java3.core.commands.logincredentials.UpdateLoginCredentialsResult;
 import lv.javaguru.java3.core.domain.LoginCredentials;
 import lv.javaguru.java3.core.services.DomainCommandHandler;
 import lv.javaguru.java3.core.services.logincredentials.LoginCredentialsService;
@@ -21,7 +23,7 @@ class UpdateLoginCredentialsCommandHandler
                 command.getLogin(),
                 command.getPassword()
         );
-        return new UpdateLoginCredentialsResult(loginCredentials);
+        return new UpdateLoginCredentialsResult(loginCredentials.getDTO());
     }
 
     @Override

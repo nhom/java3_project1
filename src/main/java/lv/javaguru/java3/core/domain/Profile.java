@@ -2,13 +2,15 @@ package lv.javaguru.java3.core.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="profile")
 public class Profile {
 
-//    private Set<Event> participatedEvents = new HashSet<>(0);
-//    private Set<Event> organizedEvents = new HashSet<>(0);
+    private Set<Event> participatedEvents = new HashSet<>(0);
+    private Set<Event> organizedEvents = new HashSet<>(0);
 
     // Attributes
     @Id
@@ -75,24 +77,24 @@ public class Profile {
     }
 
     // Organized events
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organizer")
-//    public Set<Event> getOrganizedEvents() {
-//        return this.organizedEvents;
-//    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organizer")
+    public Set<Event> getOrganizedEvents() {
+        return this.organizedEvents;
+    }
 
-//    public void setOrganizedEvents(Set<Event> organizedEvents) {
-//        this.organizedEvents = organizedEvents;
-//    }
+    public void setOrganizedEvents(Set<Event> organizedEvents) {
+        this.organizedEvents = organizedEvents;
+    }
 
     // Participated events
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "participant")
-//    public Set<Event> getParticipatedEvents() {
-//        return this.participatedEvents;
-//    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "participant")
+    public Set<Event> getParticipatedEvents() {
+        return this.participatedEvents;
+    }
 
-//    public void setParticipatedEvents(Set<Event> participatedEvents) {
-//        this.participatedEvents = participatedEvents;
-//    }
+    public void setParticipatedEvents(Set<Event> participatedEvents) {
+        this.participatedEvents = participatedEvents;
+    }
 
     // Updated
     public Date getUpdated() {

@@ -2,16 +2,17 @@ package lv.javaguru.java3.core.commands.logincredentials;
 
 import lv.javaguru.java3.core.commands.DomainCommandResult;
 import lv.javaguru.java3.core.domain.LoginCredentials;
+import lv.javaguru.java3.core.dto.logincredentials.LoginCredentialsDTO;
 
 public class CreateLoginCredentialsResult implements DomainCommandResult {
 
-	private LoginCredentials loginCredentials;
+	private LoginCredentialsDTO loginCredentials;
 
-	public CreateLoginCredentialsResult(LoginCredentials loginCredentials) {
+	public CreateLoginCredentialsResult(LoginCredentialsDTO loginCredentials) {
 		this.loginCredentials = loginCredentials;
 	}
 
-	public LoginCredentials getLoginCredentials() {
+	public LoginCredentialsDTO getLoginCredentials() {
 		return loginCredentials;
 	}
 

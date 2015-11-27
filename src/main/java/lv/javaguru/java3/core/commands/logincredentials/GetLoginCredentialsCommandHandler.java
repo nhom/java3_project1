@@ -17,7 +17,7 @@ class GetLoginCredentialsCommandHandler
     @Override
     public GetLoginCredentialsResult execute(GetLoginCredentialsCommand command) {
         LoginCredentials loginCredentials = loginCredentialsService.get(command.getClientId());
-        return new GetLoginCredentialsResult(loginCredentials);
+        return new GetLoginCredentialsResult(loginCredentials.getDTO());
     }
 
     @Override
